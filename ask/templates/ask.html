@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ask</title>
+</head>
+<body>
+{% for e in form.none_field_errors %}
+    <div>{{ e }}</div>
+{% endfor %}
+<form method="post" action="qa/ask/">
+{% csrf_token %}
+    <fieldset>
+        {% for field in form %}
+            <label>{{ field.label }}</label>
+            {{ field }}
+        {% endfor %}
+    </fieldset>
+</form>
+</body>
+<html>
